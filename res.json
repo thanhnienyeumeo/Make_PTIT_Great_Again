@@ -1,0 +1,1 @@
+{"action": {"turn": 63, "team_id": 34, "game_id": 309, "id": 15574, "created_time": "2023-10-22T17:10:06", "actions": [{"action": "BUILD", "action_param": "ABOVE", "craftsman_id": "db25743a", "id": 36315, "action_id": 15574}]}, "status": {"cur_turn": 62, "max_turn": 70, "remaining": 0}}
