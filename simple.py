@@ -3,7 +3,7 @@ import time
 import json
 
 
-
+#start part
 start = ["below","right"]
 list = ["build", "build", "move"]
 direction = ["above", "left", "upper_left"]
@@ -12,20 +12,24 @@ change = {"up": [0, -1], "down": [0, 1], "left": [-1, 0],
           "right": [1, 0], "lower_left": [-1, 1], "lower_right": [1, 1], 
           "upper_left": [-1, -1], "upper_right": [1, -1]}
 
-token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzQsIm5hbWUiOiJwdGl0MiIsImlzX2FkbWluIjpmYWxzZSwiaWF0IjoxNjk3OTk0MzMwLCJleHAiOjE2OTgxNjcxMzB9.GHWbkvz-NGKcQ8wOUFut7wN5oELEv9LLNMXu0-c3Roo"
-log_label = "team_b"
-game_id = 309
 
-url = f"https://procon2023.duckdns.org/api/player/games/{game_id}/actions"
+#get information part
+token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzQsIm5hbWUiOiJwdGl0MiIsImlzX2FkbWluIjpmYWxzZSwiaWF0IjoxNjk3OTk0MzMwLCJleHAiOjE2OTgxNjcxMzB9.GHWbkvz-NGKcQ8wOUFut7wN5oELEv9LLNMXu0-c3Roo"
+log_label = "team_b" #team_a or team_b
+game_id = 309 #
+
+url = f"https://procon2023.duckdns.org/api/player/games/{game_id}/actions" #url to post action
 get_status_url = f"https://procon2023.duckdns.org/api/player/games/{game_id}"
 
 a = time.time()
+
 status = requests.get(
 get_status_url,
 headers={"Authorization": token},
     )
 
-print('time delay is: ', time.time() - a)
+
+# print('time delay is: ', time.time() - a)
 if status.status_code != 200:
     print(status.content)
 
@@ -37,12 +41,12 @@ field_id = body['field_id']
 
 max_turn = body['num_of_turns']
 time_per_turn = body['time_per_turn']
-start_turn = 63
+start_turn = 3 #2 or 3
 
 field_infor = body['field']
 
 actions = []
-craft_coor = {}
+craft_coor = {} #danh sach cac craftmen
 craftsmen = json.loads(field_infor['craftsmen'])
 
 for i in craftsmen:
